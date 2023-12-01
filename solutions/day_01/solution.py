@@ -11,6 +11,15 @@ DIGITS = {
     "seven": "7",
     "eight": "8",
     "nine": "9",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
 }
 
 
@@ -26,22 +35,15 @@ def get_calibration_value_b(line: str) -> int:
     first_index = len(line)
     last_index = -1
     first_number, last_number = "", ""
-    for s, i in DIGITS.items():
-        idx_s_first, idx_s_last = get_first_and_last_indices(line, s)
-        if idx_s_first != -1 and idx_s_first < first_index:
+    for s in DIGITS.keys():
+        idx_first, idx_s_last = get_first_and_last_indices(line, s)
+        if idx_first != -1 and idx_first < first_index:
             first_number = DIGITS[s]
-            first_index = idx_s_first
+            first_index = idx_first
         if idx_s_last != -1 and idx_s_last > last_index:
             last_number = DIGITS[s]
             last_index = idx_s_last
 
-        idx_i_first, idx_i_last = get_first_and_last_indices(line, i)
-        if idx_i_first != -1 and idx_i_first < first_index:
-            first_number = i
-            first_index = idx_i_first
-        if idx_i_last != -1 and idx_i_last > last_index:
-            last_number = i
-            last_index = idx_i_last
     return int(f"{first_number}{last_number}")
 
 
