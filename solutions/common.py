@@ -58,7 +58,7 @@ class Grid(Generic[T]):
         return grid
 
     @staticmethod
-    def from_file(f: TextIO, value_factory: Callable[[str], T]) -> Grid:
+    def from_file(f: TextIO, value_factory: Callable[[str], T] = lambda x: x) -> Grid:
         grid: Grid[T] = Grid()
         for j, line in enumerate(f):
             for i, character in enumerate(line.rstrip()):
