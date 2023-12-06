@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum, auto
 from functools import reduce
-from typing import Iterable
 
 FILE = "solutions/day_02/input.txt"
 TEST_FILE = "solutions/day_02/test_input.txt"
